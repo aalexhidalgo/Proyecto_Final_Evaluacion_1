@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 InitialPos = new Vector3(0, 100, 0);
 
     //Velocidad y ejes
-    public float Speed = 30f;
-    public float TurnSpeed = 25f;
+    [SerializeField]private float Speed = 30f;
+    private float TurnSpeed = 25f;
     private float VerticalInput;
     private float HorizontalInput;
 
@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     //Recuento de monedas
     private int CoinCounter = 0;
+
+    //Función para recoger las monedas y el bidón de gasolina
     private void OnTriggerEnter(Collider otherCollider)
     {
         if (otherCollider.gameObject.CompareTag("Coin"))
@@ -36,8 +38,15 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("¡HAS GANADO!");
             }
         }
+        //EXTRA: Si el Player recoge un bidón de gasolina incrementa su velocidad
+        if (otherCollider.gameObject.CompareTag("Gasoline"))
+        {
+            Speed += 10;
+            Destroy(otherCollider.gameObject);
+            Debug.Log($"¡Enhorabuena! Has incrementado tu velocidad a {Speed}");
+        }
     }
-
+        
     void Start()
     {
         //Posición Inicial
