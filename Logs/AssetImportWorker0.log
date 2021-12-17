@@ -2128,3 +2128,4 @@ Received Import Request.
 Start importing Assets/Scripts/RotateObject.cs using Guid(59809ce0ede40894c8cf6b9ce4b3c930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5b8e9ba421b5e35cda95d29a2bade02') in 0.007472 seconds 
   Import took 0.009781 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
