@@ -17,6 +17,5 @@ public class RotateObject : MonoBehaviour
     {
         transform.Rotate(Vector3.up * Speed * Time.deltaTime);
 
-        //Contador
     }
 }
