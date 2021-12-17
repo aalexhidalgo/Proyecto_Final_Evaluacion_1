@@ -9,28 +9,24 @@ public class SpawnObstacle : MonoBehaviour
     private float XLimit = 170f;
     private float ZLimit = 170f;
     private float YZero = 0;
-    
-    public GameObject ObstaclePrefab;
-    private Vector3 spawnPosition;
 
-    private float StartTime = 2f;
+    public GameObject ObstaclePrefab;
+    private Vector3 SpawnPos;
+
+    private float StartTime = 1f;
     private float RepeatRate = 5f;
 
-    void Start()
-    {
-        //Función que llama al obstáculo la primera vez tras 5 segundos de empezar el jugeo y las siguientes cada dos
-        InvokeRepeating("SpawnObstaclePrefab", StartTime, RepeatRate);
-    }
-
-    public Vector3 RandomSpawnPosition()
-    {
-        return new Vector3(Random.Range(-XLimit, XLimit), Random.Range(YZero, YLimit), Random.Range(-ZLimit, ZLimit));
-    }
-
+    //Función que determina en que posición se generará el obstáculo
     public void SpawnObstaclePrefab()
     {
 
-        spawnPosition = RandomSpawnPosition();
-        Instantiate(ObstaclePrefab, spawnPosition, ObstaclePrefab.transform.rotation);
+        SpawnPos = new Vector3(Random.Range(-XLimit, XLimit), Random.Range(YZero, YLimit), Random.Range(-ZLimit, ZLimit));
+        Instantiate(ObstaclePrefab, SpawnPos, ObstaclePrefab.transform.rotation);
+    }
+
+    void Start()
+    {
+        //Función que llama al obstáculo la primera vez tras 1 segundo  de empezar el jugeo y las siguientes cada 5
+        InvokeRepeating("SpawnObstaclePrefab", StartTime, RepeatRate);
     }
 }

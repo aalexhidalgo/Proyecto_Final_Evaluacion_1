@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCoin : MonoBehaviour
 {
-    //Limites pantalla
+    //Limites
     private float XLimit = 170f;
     private float YLimit = 170f;
     private float ZLimit = 170f;

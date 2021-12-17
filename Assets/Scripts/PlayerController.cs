@@ -31,11 +31,22 @@ public class PlayerController : MonoBehaviour
         {
             CoinCounter += 1;
             Destroy(otherCollider.gameObject);
-            Debug.Log($"¡Tienes un total de {CoinCounter} monedas, sigue así!");
-            if (CoinCounter == 10)
+            if (CoinCounter <= 3)
+            {
+                Debug.Log($"¡Tienes un total de {CoinCounter} monedas, sigue así!");
+            }
+            else if (CoinCounter <= 6)
+            {
+                Debug.Log($"¡Tienes un total de {CoinCounter} monedas, ya queda menos!");
+            }
+            else if (CoinCounter <= 9)
+            {
+                Debug.Log($"¡Tienes un total de {CoinCounter} monedas, estás cerca!");
+            }
+            else if (CoinCounter == 10)
             {
                 Time.timeScale = 0;
-                Debug.Log("¡HAS GANADO!");
+                Debug.Log($"Tienes un total de {CoinCounter} monedas ¡HAS GANADO!");
             }
         }
         //EXTRA: Si el Player recoge un bidón de gasolina incrementa su velocidad
@@ -46,7 +57,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"¡Enhorabuena! Has incrementado tu velocidad a {Speed}");
         }
     }
-        
+
     void Start()
     {
         //Posición Inicial
